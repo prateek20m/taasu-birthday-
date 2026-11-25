@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7eaf0">
+  <meta name="description" content="A little birthday world made especially for Tanya — Taasu.">
+  <title>Happy Birthday, Taasu ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div id="sparkle-layer" class="sparkle-layer" aria-hidden="true"></div>
+
+  <!-- INTRO: click the letter to enter the birthday world -->
+  <section id="intro" class="intro-screen">
+    <div class="intro-card">
+      <p class="eyebrow">A tiny surprise, made with care</p>
+      <div class="intro-envelope" aria-hidden="true">
+        <div class="envelope-back"></div>
+        <div class="envelope-letter"><span>For Taasu ♡</span></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <span class="envelope-heart">♡</span>
+      </div>
+      <p class="script intro-kicker">A little world made just for you</p>
+      <h1>Happy Birthday,<br><span>Taasu!</span> <i>♡</i></h1>
+      <p class="intro-copy">Today is all about you, my favorite human.</p>
+      <p class="intro-small">A little world made just for you, with lots of love.</p>
+      <button id="open-surprise" class="button button-primary">Open your little surprise <span>↗</span></button>
+    </div>
+    <span class="doodle doodle-left" aria-hidden="true">✿</span>
+    <span class="doodle doodle-right" aria-hidden="true">✧</span>
+  </section>
+
+  <!-- Main site is revealed after the opening interaction -->
+  <main id="main-site" class="site-shell" hidden>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Back to top">HBD Taasu <span>♡</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#gallery">Photos</a><a href="#timeline">Our story</a><a href="#quiz">Quiz</a>
+        <a href="#mountain-dream">The dream</a><a href="#letter">Letter</a>
+      </nav>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="music-widget">
+        <span class="music-note" aria-hidden="true">♫</span>
+        <audio id="birthday-audio" src="assets/music/bdsong.mp4" preload="none" loop></audio>
+        <button id="music-toggle" class="music-button" type="button">Play music</button>
+      </div>
+    </header>
+
+    <section id="home" class="hero section-wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">A birthday note for someone wonderful</p>
+        <h2>To my favourite<br><span class="script">Taasu</span><span class="heart-mark"> ♡</span></h2>
+        <p class="hero-lede">Some people become important in the most unexpected ways. This little corner of the internet is for you, for our friendship, and for all the lovely things still waiting ahead.</p>
+        <a class="button button-primary" href="#letter">Read your birthday letter <span>↓</span></a>
+        <p class="hand-note">made with a whole lot of affection — Prateek</p>
+      </div>
+      <div class="hero-art" aria-label="Decorative birthday illustration">
+        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        <div class="hero-sun">✦</div>
+        <div class="hero-polaroid">
+          <div class="hero-photo-frame">
+            <img class="hero-photo" src="assets/taasu/13.jpeg" alt="Taasu in a pink sari taking a mirror selfie">
+          </div>
+          <p class="script">little things, big feelings</p>
+        </div>
+        <span class="hero-flower">✿</span><span class="hero-star">✧</span>
+      </div>
+    </section>
+
+    <section class="welcome-strip section-wrap">
+      <span>✿</span><p>For the morning messages, the silly arguments, the kindness, and the dreams we still talk about.</p><span>✿</span>
+    </section>
+
+    <!-- PHOTO GALLERY: image paths and captions are configured in script.js -->
+    <section id="gallery" class="section-wrap section-block">
+      <div class="section-heading">
+        <p class="eyebrow">A little collection</p><h2>Little moments,<br><span class="script">forever memories.</span></h2>
+        <p>Not every memory needs a big story. Sometimes a picture is enough to bring back a feeling.</p>
+      </div>
+      <div id="photo-gallery" class="photo-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- FRIENDSHIP TIMELINE -->
+    <section id="timeline" class="section-block tinted-section">
+      <div class="section-wrap">
+        <div class="section-heading centered">
+          <p class="eyebrow">The story so far</p><h2>How a little conversation<br><span class="script">became something special.</span></h2>
+          <p>Not a perfect story — just ours, with its own funny beginnings and meaningful little moments.</p>
+        </div>
+        <div id="timeline-list" class="timeline"></div>
+      </div>
+    </section>
+
+    <!-- FRIENDSHIP QUIZ -->
+    <section id="quiz" class="section-wrap section-block">
+      <div class="section-heading centered">
+        <p class="eyebrow">A tiny friendship test</p><h2>How well do you <span class="script">know us?</span></h2>
+        <p>No pressure, Taasu. But I am absolutely keeping score. 😌</p>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-topline"><span id="quiz-progress">Question 1 of 5</span><span id="quiz-score">Score: 0</span></div>
+        <div class="quiz-progress"><span id="quiz-progress-bar"></span></div>
+        <p id="quiz-question" class="quiz-question" aria-live="polite" aria-atomic="true"></p>
+        <div id="quiz-options" class="quiz-options"></div>
+        <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+        <div class="quiz-actions"><button id="quiz-next" class="button button-primary" disabled>Next question →</button></div>
+        <div id="quiz-result" class="quiz-result" hidden></div>
+      </div>
+    </section>
+
+    <!-- CAKE + GIFT -->
+    <section id="birthday-magic" class="magic-section section-block">
+      <div class="section-wrap magic-grid">
+        <div class="magic-copy">
+          <p class="eyebrow">Make a birthday wish</p><h2>A little cake,<br><span class="script">a lot of wishes.</span></h2>
+          <p>Tap the candles or use the button. Make a wish that belongs only to you.</p>
+          <p id="cake-wish" class="wish-message" aria-live="polite">May this year be gentle with you and full of beautiful surprises. ♡</p>
+          <button id="blow-candles" class="button button-primary">Blow out the candles ✨</button>
+          <button id="another-wish" class="button button-soft" hidden>Make another wish</button>
+        </div>
+        <div class="cake-scene">
+          <div class="cake-sparkle">✦</div>
+          <div class="cake">
+            <div class="candle-row">
+              <button class="candle" aria-label="Blow out candle 1"><span class="flame"></span></button>
+              <button class="candle" aria-label="Blow out candle 2"><span class="flame"></span></button>
+              <button class="candle" aria-label="Blow out candle 3"><span class="flame"></span></button>
+            </div>
+            <div class="cake-top"></div><div class="cake-middle"></div><div class="cake-bottom"></div><div class="cake-plate"></div>
+          </div>
+          <p class="script cake-caption">wish, wish, wish!</p>
+        </div>
+      </div>
+      <div class="section-wrap gift-wrap">
+        <div class="gift-box" id="gift-box" role="button" tabindex="0" aria-label="Open your surprise gift" aria-expanded="false">
+          <div class="gift-lid"></div><div class="gift-body"><span>♡</span></div><div class="gift-ribbon"></div>
+        </div>
+        <div class="gift-copy"><p class="eyebrow">Something small, from me to you</p><h3>A little gift for <span class="script">Taasu</span></h3>
+          <p>There's a note tucked inside. Go on, open it.</p>
+          <button id="open-gift" class="button button-soft">Open your gift 🎁</button>
+          <p id="gift-message" class="gift-message" hidden>One day, I hope we get to meet, sit together, and laugh about all the things we've talked about. Until then, here's a little birthday gift made just for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVEALABLE MESSAGES -->
+    <section id="little-things" class="section-wrap section-block">
+      <div class="section-heading centered"><p class="eyebrow">A few things from my heart</p>
+        <h2>Things I don't say enough,<br><span class="script">but I hope you always know.</span></h2>
+        <p>Tap a card. There is a little message waiting for you.</p></div>
+      <div id="message-cards" class="message-grid"></div>
+    </section>
+
+    <!-- SHARED MOUNTAIN DREAM -->
+    <section id="mountain-dream" class="mountain-section">
+      <div class="mountain-sky"><span class="cloud cloud-a"></span><span class="cloud cloud-b"></span><span class="mountain-star">✦</span></div>
+      <div class="mountain-content section-wrap">
+        <p class="eyebrow">A dream for another day</p><h2>One day, our little<br><span class="script">mountain dream.</span></h2>
+        <div class="dream-illustration" aria-hidden="true">
+          <div class="mountain peak-back"></div><div class="mountain peak-front"></div>
+          <div class="cafe"><div class="cafe-roof"></div><div class="cafe-sign">our café</div><div class="cafe-window"></div><div class="cafe-door"></div></div>
+          <div class="store">little store</div><div class="bike bike-one">🏍</div><div class="bike bike-two">🏍</div>
+        </div>
+        <div class="dream-note"><p class="script">Remember our mountain deal, Taasu?</p>
+          <p>One day, we are going to open our own little café in the mountains. A cozy place with beautiful views, good coffee, and a peaceful atmosphere.</p>
+          <p>We will also have our own little store nearby.</p>
+          <p>You will have your bike, I will have mine, and whenever we get time, we will go on long rides through the mountains.</p>
+          <p>A little café, a little store, two bikes, and a thousand beautiful memories waiting to happen.</p>
+          <p>I don't know when this dream will come true, but I hope we never forget it.</p>
+          <p class="script dream-promise">And yes, you still have to keep your side of the deal! ♡</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TULSI MALA -->
+    <section id="first-meeting" class="section-wrap section-block mala-section">
+      <div class="mala-art" aria-hidden="true"><div class="mala-box"><div class="mala-beads">● · ● · ● · ● · ●</div><span>ॐ</span></div><span class="mala-flower">✿</span></div>
+      <div class="mala-copy"><p class="eyebrow">A little thing waiting to go home</p><h2>Until the day<br><span class="script">we finally meet.</span></h2>
+        <p>Your tulsi mala is still with me, Taasu.</p>
+        <p>I really hope we get to meet soon so I can give it back to you personally. Even ten minutes would be enough for me.</p>
+        <p>I just want to finally meet you, see you in person, and give you something that has been waiting to return to you.</p>
+        <p>Until that day comes, I hope you know that you are remembered, cared for, and appreciated.</p>
+      </div>
+    </section>
+
+    <!-- PERSONAL LETTER -->
+    <section id="letter" class="letter-section section-block">
+      <div class="section-wrap">
+        <div class="section-heading centered"><p class="eyebrow">A letter, just for you</p><h2>Words I wanted<br><span class="script">you to have.</span></h2></div>
+        <article class="letter-paper">
+          <div class="letter-stamp">♡</div><p class="script letter-date">A birthday letter</p>
+          <div id="birthday-letter" class="letter-content"></div>
+          <p class="script letter-signoff">With lots of love,<br>Your best friend, Prateek. ❤️</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FINAL SURPRISE -->
+    <section id="final-surprise" class="final-section section-block">
+      <div class="final-decor" aria-hidden="true">✧　♡　✿　♡　✧</div>
+      <p class="eyebrow">Before you go...</p><h2>And one <span class="script">last thing...</span></h2>
+      <p>There is one more little message waiting for you.</p>
+      <button id="last-surprise" class="button button-primary">One last surprise for you ♡</button>
+      <div id="final-message" class="final-message" hidden>
+        <p class="script">Happy Birthday, my Taasu!</p>
+        <p>Thank you for becoming such a special part of my life.</p>
+        <p>I hope we get to share many more conversations, laughs, silly arguments, and beautiful memories.</p>
+        <p>I hope your dreams come true, your heart stays happy, and your life becomes everything you have ever wished for.</p>
+        <p>And one day, when we finally meet, I hope we can look back at this little birthday website and smile at how our friendship started.</p>
+        <p>Until then, keep smiling, keep dreaming, and take care of yourself.</p>
+        <p>Your best friend is always cheering for you.</p>
+        <p class="script">Happy Birthday, Taasu. ❤️</p>
+        <button id="restart" class="button button-soft">Start our little adventure again ↺</button>
+      </div>
+    </section>
+
+    <footer class="site-footer"><p>Made with love for Taasu by Prateek <span>♡</span></p><a href="#home">Back to the beginning ↑</a></footer>
+  </main>
+
+  <!-- Accessible photo lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button id="lightbox-close" class="lightbox-close" aria-label="Close photo">×</button>
+    <button id="lightbox-prev" class="lightbox-arrow" aria-label="Previous photo">‹</button>
+    <figure><img id="lightbox-image" src="" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+    <button id="lightbox-next" class="lightbox-arrow" aria-label="Next photo">›</button>
+  </div>
+
+  <div id="balloon-layer" class="balloon-layer" aria-hidden="true"></div>
+  <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>
